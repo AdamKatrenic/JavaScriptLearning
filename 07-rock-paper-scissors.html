@@ -8,9 +8,8 @@
 
     <button onclick="
 
-    pickComputerMove();
+    const computerMove = pickComputerMove();
 
-    console.log(computerMove);
 
     let result = '';
 
@@ -28,9 +27,8 @@
 
     
     <button onclick="
-    pickComputerMove();
+    const computerMove = pickComputerMove();
 
-    console.log(computerMove);
 
     let result = '';
 
@@ -46,28 +44,24 @@
     "
     >Paper</button>
 
-
     <button onclick="
-        pickComputerMove();
+        const computerMove = pickComputerMove();
 
-    console.log(computerMove);
+        let result = '';
 
-    let result = '';
+        if(computerMove === 'rock') {
+            result = 'LOSE';
+        } else if(computerMove === 'paper') {
+            result = 'WIN';
+        } else if(computerMove === 'scissors') {
+            result = 'TIE';
+        }
 
-    if(computerMove === 'rock') {
-        result = 'LOSE';
-    } else if(computerMove === 'paper') {
-        result = 'WIN';
-    } else if(computerMove === 'scissors') {
-        result = 'TIE';
-    }
-
-    alert(`You picked Scissors. Computer picked ${computerMove}.${result}`);
-    "
+        alert(`You picked Scissors. Computer picked ${computerMove}.${result}`);
+        "
     >Scissors</button>
 
     <script>
-        let computerMove = '';
 
         function pickComputerMove() {
 
@@ -83,6 +77,7 @@
                 computerMove = 'scissors';
             }
 
+            return computerMove;
         }
     </script>
   </body>
