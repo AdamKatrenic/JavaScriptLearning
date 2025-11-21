@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Cart quantity</title>
+  </head>
+  <body>
+
+    <h1>Cart quantity</h1>
+
+        <!--Show quantity button-->
+        <button onclick="
+            alert('Quantity: ' + quantity);"
+        >Show Quantity</button>
+
+        <!--Add to cart button-->
+        <button onclick="
+            quantity =+ 1;
+            alert('Added 1 item to cart. New quantity: ' + quantity);"
+        >Add To Cart</button>
+
+        <!--Increase by 2 button-->
+        <button onclick="
+        quantity =+ 2;
+        alert('Added 2 items to cart. New quantity: ' + quantity);"
+        >+2</button>
+
+        <!--Increase by 3 button-->
+        <button onclick="
+        quantity =+ 3;
+        alert('Added 3 items to cart. New quantity: ' + quantity);""
+        >+3</button>
+
+        <!--Reset cart button-->
+        <button onclick="
+        quantity = 0;
+        alert('Cart reset. New quantity: ' + quantity);"
+        >Reset Cart</button>
+
+    <script>
+        let quantity = 0;
+    </script>
+  </body>
+</html> 
