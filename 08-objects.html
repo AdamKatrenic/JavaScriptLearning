@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Objects</title>
+  </head>
+  <body>
+    <script>
+        /*
+        const product = {
+            name: 'Laptop',
+            price: 1199
+        };
+
+        console.log(product); // { name: 'Laptop', price: 1199 }
+        console.log(product.name); // Laptop
+        console.log(product.price); // 1199
+
+        product.name = 'Gaming Laptop';
+        console.log(product.name); // Gaming Laptop
+
+        product.newProperty = true;
+        console.log(product); // { name: 'Gaming Laptop', price: 1199, newProperty: true }
+
+        delete product.newProperty;
+        console.log(product); // { name: 'Gaming Laptop', price: 1199 }
+
+        const anotherProduct = {
+            name: 'Smartphone',
+            price: 799,
+            type: function() {
+                return 'Iphone 17';
+            }
+        };
+
+        console.log(anotherProduct); // { name: 'Smartphone', price: 799, type: [Function: type] }
+        console.log(anotherProduct.type()); // Iphone 17
+        
+
+        const product2 = {
+            name: 'Shirt',
+            'delivery-time' : '5 days',
+            rating: {
+                stars: 4.5,
+                count: 120
+            },
+            fun: function function1() {
+                console.log('This is a function inside an object');
+            }
+
+        };
+
+        console.log(product2); // { name: 'Shirt' }
+        console.log(product2.name); // Shirt
+        console.log(product2['name']); // Shirt
+        console.log(product2['delivery-time']); // undefined
+        console.log(product2.rating.stars); // 4.5
+        console.log(product2.rating.count); // 120
+
+        //bracket notation is used when the property name has special characters or spaces
+
+        product2.fun(); // This is a function inside an object
+
+        console.log(typeof console); // object
+
+        // Converting objects to JSON and back
+
+
+        JSON.stringify(product2); // '{"name":"Shirt","delivery-time":"5 days","rating":{"stars":4.5,"count":120}}'
+        JSON.parse('{"name":"Shirt","delivery-time":"5 days","rating":{"stars":4.5,"count":120}}'); // { name: 'Shirt', 'delivery-time': '5 days', rating: { stars: 4.5, count: 120 } }
+
+        console.log(JSON.stringify(product2));
+        const jsonString = JSON.stringify(product2);
+        console.log(JSON.parse(jsonString));
+        */
+
+        //AUTOBOXING
+
+        console.log('Hello'.length); // 5  
+        console.log('Hello World'.toUpperCase()); // HELLO WORLD
+
+        const object1 = {
+            message: 'Hello, World!',
+            getMessage: function() {
+                return this.message;
+            }
+        };  
+
+        const object2 = object1;
+
+        object1.message = 'Hello, Universe!';
+        console.log(object1);
+        console.log(object2);
+
+        const object3 = {
+            message: 'Hello, Universe!',
+        };
+
+        console.log(object3 === object1); // false
+        console.log(object2 === object1); // true
+
+        const object4 = {
+            message: 'Hello, Universe!',
+            price: 799
+        }
+        //const message = object4.message;
+        const {message, price} = object4;
+        console.log(message); // Hello, Universe!
+        console.log(price); // 799
+
+
+        const object5 = {
+            //message: message
+            message,
+            //method: function() {
+            //    console.log('method');
+            //}
+            method(){
+                console.log('method');
+            }
+        };
+        console.log(object5); // { message: 'Hello, Universe!' } 
+        object5.method(); // method
+
+
+    </script>
+  </body>
+</html> 

@@ -14,11 +14,22 @@
         function1(); //Calling or invoking the function
         */
 
-        function calculateTax(parameter1){
+        function calculateTax1(parameter1){
             console.log(parameter1 * 0.1);
         }
 
-        calculateTax(2000);
+        calculateTax1(2000);
+
+        function calculateTax2(cost, taxPercent = 0.1){
+            console.log(cost * taxPercent);
+        }
+
+        calculateTax2(2000); //default taxPercent of 0.1 will be used
+        calculateTax2(3000, 0.15); //custom taxPercent of 0.15 will be used
+
+
+        
+
     </script>
   </body>
 </html> 

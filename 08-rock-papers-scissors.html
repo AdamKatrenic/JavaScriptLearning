@@ -12,25 +12,50 @@
 
     <button onclick="playGame('scissors')">Scissors</button>
 
+    <button onclick="deleteScore()">Reset Score</button>
+
     <script>
+
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0,
+            losses: 0,
+            ties: 0
+            };
+
 
         function playGame(playerMove) {
             const computerMove = pickComputerMove();
             let result = '';
 
             if (playerMove === computerMove) {
-                result = 'TIE';
+                result = 'TIE',
+                score.ties += 1;
+                console.log(score)
+                
             } else if (
                 (playerMove === 'rock' && computerMove === 'scissors') ||
                 (playerMove === 'paper' && computerMove === 'rock') ||
                 (playerMove === 'scissors' && computerMove === 'paper')
             ) {
-                result = 'WIN';
+                result = 'WIN',
+                score.wins += 1;
+                console.log(score);
+                
             } else {
-                result = 'LOSE';
+                result = 'LOSE',
+                score.losses += 1;
+                console.log(score);
+                
             }
 
-            alert(`You picked ${capitalize(playerMove)}. Computer picked ${computerMove}. ${result}`);
+            localStorage.setItem('score', JSON.stringify(score));
+
+            alert(
+                `You picked ${capitalize(playerMove)}` + `\nComputer picked ${computerMove}.` + `\n` +`\n${result}` + `\n` +
+            `\nSCORE :` +    
+                `\nWins: ${score.wins}` + 
+                `\nLosses: ${score.losses}` + 
+                `\nTies: ${score.ties}`);
         }
 
         function pickComputerMove() {
@@ -50,6 +75,15 @@
 
         function capitalize(s) {
             return s.charAt(0).toUpperCase() + s.slice(1);
+        }
+
+        function deleteScore() {
+            score.wins = 0;
+            score.losses = 0;
+            score.ties = 0;
+            localStorage.removeItem('score');
+            console.log('Score reset:', score);
+            alert('Score has been reset to 0.');
         }
     </script>
   </body>
