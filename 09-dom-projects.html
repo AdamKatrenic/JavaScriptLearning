@@ -10,9 +10,25 @@
         subscribe();
     " class="js-subscribe-button">Subscribe</button>
 
+    <p>Amazon Shipping Calculator</p>
+    <p>If the price is below 40$ (+10$)</p>
+    <p>If the price is over 40$ (free shipping)</p>
+    <input class="js-input" type="number" placeholder="Cost of order (price)" onkeydown="console.log(event.key)">
+    <button onclick="calculateShipping()">Calculate Shipping</button>
+    <p class="js-final-price">Your price after shipping = </p>
+
 
     <script>
 
+        String(25)
+        console.log('25'-5);//20
+        console.log('25'+5);//255 for some reason
+
+        window.document
+        window.console.log('window');
+        window.alert('Hello from window alert');
+
+        // Subscribe Button
         function subscribe() {
             const buttonElement = document.querySelector('.js-subscribe-button');
             if (buttonElement.textContent === 'Subscribe') {
@@ -22,8 +38,22 @@
             }
         }
 
-        
-        
+        function calculateShipping() {
+            const inputElement = document.querySelector('.js-input');
+            const orderCost = Number(inputElement.value);
+            let shippingCost = 0;
+
+            if (orderCost < 40) {
+                shippingCost = 10;
+            } else {
+                shippingCost = 0;
+            }
+
+            document.querySelector('.js-final-price').textContent =
+            `Your price after shipping = $${orderCost + shippingCost}`;
+
+        }
+
     </script>
   </body>
 </html> 
