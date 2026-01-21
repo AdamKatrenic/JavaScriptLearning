@@ -1,22 +1,16 @@
-//foreach
+//map
 
-let fruits = ["apple", "orange", "banana", "coconut"];
+const numbers = [1,2,3,4,5,6,7,8,9,10];
+const squares = numbers.map(square);
+const cubes = numbers.map(cube);
 
-fruits.forEach(capitalize);
-fruits.forEach(display);
+console.log(cube);
 
-function upperCase(element, index, array){
-    array[index] = element.toUpperCase();
+function square(element){
+    return Math.pow(element,2)
 }
 
-function lowerCase(element, index, array){
-    array[index] = element.toLowerCase();
+function cube(element) {
+    return Math.pow(element,3)
 }
 
-function capitalize(element, index, array){
-    array[index] = element.charAt(0).toUpperCase()+element.slice(1);
-}
-
-function display(element) {
-    console.log(element);
-}
