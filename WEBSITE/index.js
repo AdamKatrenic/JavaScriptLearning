@@ -1,16 +1,22 @@
-//Callbacks
+//foreach
 
-sum(displayPage, 5, 10);
+let fruits = ["apple", "orange", "banana", "coconut"];
 
-function sum(callback, a, b) {
-    let result = a + b;
-    callback(result);
+fruits.forEach(capitalize);
+fruits.forEach(display);
+
+function upperCase(element, index, array){
+    array[index] = element.toUpperCase();
 }
 
-function displaySum(result) {
-    console.log("The sum is: " + result);
+function lowerCase(element, index, array){
+    array[index] = element.toLowerCase();
 }
 
-function displayPage(result){
-    document.getElementById("myH1").textContent = "The sum is: " + result;
+function capitalize(element, index, array){
+    array[index] = element.charAt(0).toUpperCase()+element.slice(1);
+}
+
+function display(element) {
+    console.log(element);
 }
