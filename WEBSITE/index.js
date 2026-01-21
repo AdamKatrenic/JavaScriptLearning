@@ -1,22 +1,48 @@
-const textBox = document.getElementById('textBox');
-const toFahrenheit = document.getElementById('toFahrenheit');
-const toCelsius = document.getElementById('toCelsius');
-const result = document.getElementById('result');
+//Random password Generator
 
-let temperature; 
+function generatePassword(lenght, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
 
-function convert(){
+    const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numberChars = '0123456789';
+    const symbolChars = '!@#$%^&*()_+[]{}|;:,.<>?';
 
-    if(toFahrenheit.checked){
-        temperature = textBox.value;
-        result.textContent = (temperature * 9/5) + 32 + " °F";
+    let allowedChars = '';
+    let password = '';
+
+    allowedChars += includeLowercase ? lowercaseChars : '';
+    allowedChars += includeUppercase ? uppercaseChars : '';
+    allowedChars += includeNumbers ? numberChars : '';
+    allowedChars += includeSymbols ? symbolChars : '';
+
+    if (lenght <= 0) {
+        return 'Password length must be greater than 0';
     }
-    else if(toCelsius.checked){
-        temperature = textBox.value;
-        result.textContent = (temperature - 32) * 5/9 + " °C";
+    if (allowedChars.length === 0) {
+        return 'At least one character type must be selected';
     }
-    else{
-        result.textContent = "Please select a conversion option.";
-        return;
+
+    for(let i = 0; i < lenght; i++) {
+        const randomIndex = Math.floor(Math.random() * allowedChars.length);
+        password += allowedChars[randomIndex];
     }
+
+    return password;
 }
+
+const passwordLength = 10;
+const includeLowercase = true;
+const includeUppercase = true;
+const includeNumbers = true;
+const includeSymbols = true;
+
+const password = generatePassword
+(
+    passwordLength, 
+    includeLowercase, 
+    includeUppercase, 
+    includeNumbers, 
+    includeSymbols
+);
+
+console.log("Generated Password: " + password);
