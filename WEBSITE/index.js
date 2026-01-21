@@ -1,28 +1,22 @@
-const decreaseBtn = document.getElementById('decreaseBtn');
-const increaseBtn = document.getElementById('increaseBtn');
-const resetBtn = document.getElementById('resetBtn');
+const textBox = document.getElementById('textBox');
+const toFahrenheit = document.getElementById('toFahrenheit');
+const toCelsius = document.getElementById('toCelsius');
+const result = document.getElementById('result');
 
-const countLabel = document.getElementById('countLabel');
+let temperature; 
 
-let counter = 0;
+function convert(){
 
-function updateDisplay() {
-    countLabel.textContent = counter;
+    if(toFahrenheit.checked){
+        temperature = textBox.value;
+        result.textContent = (temperature * 9/5) + 32 + " °F";
+    }
+    else if(toCelsius.checked){
+        temperature = textBox.value;
+        result.textContent = (temperature - 32) * 5/9 + " °C";
+    }
+    else{
+        result.textContent = "Please select a conversion option.";
+        return;
+    }
 }
-
-decreaseBtn.addEventListener('click', () => {
-    counter--;
-    updateDisplay();
-});
-
-increaseBtn.addEventListener('click', () => {
-    counter++;
-    updateDisplay();
-});
-
-resetBtn.addEventListener('click', () => {
-    counter = 0;
-    updateDisplay();
-});
-
-updateDisplay();
